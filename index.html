@@ -5,24 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compte Rendu</title>
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/structure.css"/>
 </head>
 <body>
 <header>Compte rendu </header>
-<nav class="Nav-mobile">
-    <label for="toggle" class="menu-button">☰</label>
-    <input type="checkbox" id="toggle">
-    <div class="menu">
-        <a href="index.html">Acceuil</a>
-        <a href="SQL.html">Requetes</a>
-        <a href="TEAM.html">L'équipe</a>
+    <nav class="Nav-mobile">
+        <label for="toggle" class="menu-button">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="index.html">Acceuil</a>
+            <a href="SQL.html">Requetes</a>
+            <a href="TEAM.html">L'équipe</a>
+        </div>
+    </nav>
+    <nav class="nav-page">
+        <a href="#article1">Présentation KDOU</a>
+        <a href="#article2">L'objectif</a>
+        <a href="#article3">Réalisation</a>
+        <a href="#article4">Qui sommes nous ?</a>
+    </nav>
+    <input type="checkbox" id="download-button">
+    <label for="download-button" class="floating-btn">
+        <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
+    </label>
+    <div class="download-menu">
+        <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
+        <a href="/assets/Rapport/">Michèle L</a>
+        <a href="/assets/Rapport/">Noah</a>
+        <a href="/assets/Rapport/">Yasmine</a>
     </div>
-</nav>
-<nav class="nav-page">
-    <a href="#article1">Présentation KDOU</a>
-    <a href="#article2">L'objectif</a>
-    <a href="#article3">Réalisation</a>
-    <a href="#article4">Qui sommes nous ?</a>
-</nav>
 <main>
     <section id="article1">
         <h2 class="title-center">Présentation de KDOU</h2>
@@ -59,22 +70,18 @@
             les ventes, les fournisseurs et les produits. Nous réaliserons ensuite les requetes demandée. </p>
         <p>nous présenterons nos résultats et nos conclusions dans un site web conçu en HTML et CSS,
             avec une navigation claire et une présentation soignée comme demandé dans le cahier des charges.</p>
-        <div class ="bouton">
         <p>Pour avoir accès à la requête :</p>
-        <a href="SQL.html">
+        <a href="SQL.html" class="button-container" >
             <button> Voir les requêtes</button>
         </a>
-        </div>
     </section>
     <section id="article4">
         <h2 class="title-center">Qui sommes nous ?</h2>
 
         <p>Vous voulez en savoir plus sur notre équipe ? </p>
-        <div class ="bouton">
-            <a href="TEAM.html">
+            <a href="TEAM.html" class="button-container">
                 <button> Notre équipe</button>
             </a>
-        </div>
     </section>
 
 </main>
