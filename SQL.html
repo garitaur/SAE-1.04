@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Compte Rendu</title>
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
 <header>requetes SQL</header>
@@ -18,11 +18,154 @@
     </div>
 </nav>
 <nav class="nav-page">
-    <a href="#article1">Article 1</a>
-    <a href="#article2">Article 2</a>
-    <a href="#article3">Article 3</a>
+    <a href="#requete1">Requête 1</a>
+    <a href="#requete2">Requête 2</a>
+    <a href="#requete3">Requête 3</a>
+    <a href="#requete4">Requête 4</a>
+    <a href="#requete5">Requête 5</a>
 </nav>
 <main>
+    <section id="requete1">
+        <h2>Requête 1)a:</h2>
+        <div class="requete">
+        <pre>SELECT Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
+FROM Clientele
+WHERE Clientele.Ville = "Paris"
+ORDER BY Clientele.societe;</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Societe</th>
+                    <th>Contact</th>
+                    <th>Tel</th>
+                    <th>Mailcli</th>
+                    <th>Ville</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>ChefFamilla</td>
+                    <td>Aria Cruz</td>
+                    <td>06.78.54.22.65</td>
+                    <td>cheffamill@gmail.com</td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td>Chez Bouxou</td>
+                    <td>Alyssa Duranta</td>
+                    <td>03 86 64 78 90</td>
+                    <td>chezbouxou@gmail.com</td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td>La Parisienne</td>
+                    <td>Marie Lefevre</td>
+                    <td>06.58.64.15.62</td>
+                    <td>contact@parisienne.fr</td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td>Le Gourmet</td>
+                    <td>Marc Random</td>
+                    <td>06.78.32.54.86</td>
+                    <td>contact@parisienne.fr</td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td>Une petite faim</td>
+                    <td>Diego Roel</td>
+                    <td>06.40.52.22.22</td>
+                    <td>unepetitef@orange.fr</td>
+                    <td>Paris</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    mettez le reste des requetes
+
+    <section>
+        <h2>Requête 1)e:</h2>
+        <div class="requete">
+        <pre>SELECT Fournisseur.Societe, Categorie.NomCateg
+FROM Fournisseur INNER JOIN
+(Categorie SELECT
+    Fournisseur.Societe
+FROM
+    Fournisseur
+WHERE
+    Fournisseur.NoFour IN (
+        SELECT DISTINCT
+            Fournisseur.NoFour
+        FROM
+            (
+                Fournisseur
+                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour
+            )
+            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
+        WHERE
+            Categorie.NomCateg IN ("Viandes")
+    )
+    AND Fournisseur.NoFour IN (
+        SELECT DISTINCT
+            Fournisseur.NoFour
+        FROM
+            (Fournisseur
+                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour)
+            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
+        WHERE
+            Categorie.NomCateg IN ("Poissons et fruits de mer")
+    )
+ORDER BY
+    Fournisseur.Societe;</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Societe</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Moines de Paris</td>
+                </tr>
+                <tr>
+                    <td>Sakura Imports</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="requete2">
+        <h2>Requête 2:</h2>
+        <div class="requete">
+        <pre>SELECT SUM (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
+FROM ((Pays INNER JOIN Fournisseur
+	ON Pays.NoPays = Fournisseur.NoPays)
+INNER JOIN Produit
+	ON Fournisseur.NoFour = Produit.NoFour)
+INNER JOIN DetailCommande
+	ON Produit.RefProd = DetailCommande.[Réf produit]
+WHERE Pays.UE = "Membre";</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>CA_pays_UE</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1431070,75942624</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    /*--mettez vos requetes jusqu'a la 5eme*/
 
 </main>
 <footer>&copy; 2026 – Compte rendu</footer>
