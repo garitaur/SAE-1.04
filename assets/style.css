@@ -1,5 +1,4 @@
 :root {
-    color-scheme: oklch;
     --bg-page : #F9EAE1;
     --bg-header: #CC8B86;
     --bg-nav: #7D4F50;
@@ -17,7 +16,6 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    padding: 10px;
     display: grid;
     grid-template-columns: 120px 1fr;
     grid-template-rows: 80px 1fr 60px;
@@ -27,8 +25,8 @@ body {
     "navPage main"
     "footer footer";
 
-    gap: 5px;
-    border-radius: 5px;
+
+
 }
 
 header{
@@ -40,6 +38,9 @@ header{
 
     font-family:"Bodoni MT";
     font-size: 100px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 10px;
+
 }
 section{
     margin: 10px;
@@ -56,10 +57,13 @@ ul{
 h2.title-center{
     text-align: center;
     gap: 20px;
+    padding: 10px 0px;
 }
 main{
     background-color: var(--bg-main);
     grid-area: main;
+    border-radius: 20px 0 0 20px;
+
 }
 /*Parametres du nav*/
 .nav-page{
@@ -68,7 +72,9 @@ main{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 30px
+    font-size: 30px;
+    border-radius: 0 20px 20px 0;
+    margin-right: 4px;
 }
 
 /*bouton ouvrir le menu*/
@@ -108,10 +114,13 @@ main{
     box-sizing: border-box;
     gap: 15px;
 
+
     /*Pour l'anim d'ouverture*/
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.175s ease-in-out;
     z-index: 1000;
+
+    border-radius: 0 20px 20px 0;
 }
 
 /*lien du menu*/
@@ -133,10 +142,10 @@ main{
     transform: translateX(0);
 }
 
-/* On masque la checkbox */
+/* On masque la checkbox
 #toggle {
     display: none;
-}
+} */
 
 /* Effet au survol */
 .menu a:hover {
@@ -149,32 +158,75 @@ footer{
     display:flex;
     align-items: center;
     justify-content: center;
+    border-radius: 20px 20px 0 0;
+    margin-top: 10px;
 }
-div.Team{
-    display:flex;
+div.Team {
+    display: flex;
     justify-content: space-around;
+}
 
-}
-img.TeamParticipant{
+img.TeamParticipant {
     border-radius: 50%;
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.2s, opacity 0.2s;
 }
-img.TeamParticipant:hover{
+
+img.TeamParticipant:hover {
     transform: scale(1.1);
+}
+
+/* Survol : les autres images deviennent plus transparentes */
+div.Team:has(img:hover) img.TeamParticipant:not(:hover) {
+    opacity: 0.8;
+}
+
+/* Fiches masquées par défaut */
+.fiche {
+    display: none;
+}
+
+/* Affichage de la fiche : le radio est un frère de .InfosTeam */
+#garitaur:checked ~ .InfosTeam .garitaur-fiche,
+#sfsq:checked     ~ .InfosTeam .sfsq-fiche,
+#guest:checked    ~ .InfosTeam .guest-fiche,
+#iisjabbe:checked ~ .InfosTeam .iisjabbe-fiche {
+    display: block;
+}
+
+/* Contour sur l'image sélectionnée */
+#garitaur:checked ~ .Team label[for="garitaur"] img,
+#sfsq:checked     ~ .Team label[for="sfsq"] img,
+#guest:checked    ~ .Team label[for="guest"] img,
+#iisjabbe:checked ~ .Team label[for="iisjabbe"] img {
+    outline: 4px solid var(--bg-nav);
+    outline-offset: 4px;
+}
+
+.Temp-button {
+    display: inline-flex;
+    padding: 10px 20px;
+    background-color: var(--bg-nav);
+    text-decoration: none;
+    border-radius: 5px;
+    justify-content: center;
 }
 
 table{
     border: 1px solid black;
-
 }
+
 thead{
     background-color: var(--bg-header);
 }
+
 tbody{
     background-color: var(--bg-main);
     border-collapse: separate;
     border-spacing: 12px;
-
 }
+
 td{
     padding: 8px 12px;
 }
@@ -191,6 +243,7 @@ button{
     border-radius: 8px;
     padding: 8px;
 }
+
 button:hover{
     background-color: var(--color-hover);
 }
