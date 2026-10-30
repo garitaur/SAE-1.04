@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our team</title>
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/structure.css"/>
+
 </head>
 <body>
 <header>Notre team</header>
-<nav class="Nav-mobile">
-    <label for="toggle" class="menu-button">☰</label>
-    <input type="checkbox" id="toggle">
-    <div class="menu">
-        <a href="index.html">Acceuil</a>
-        <a href="SQL.html">Requetes</a>
-        <a href="TEAM.html">L'équipe</a>
-    </div>
-</nav>
-<nav class="nav-page">
-    <a href="#Github">Github</a>
-    <a href="#Team">Notre team</a>
-</nav>
+    <nav class="Nav-mobile">
+        <label for="toggle" class="menu-button">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="index.html">Acceuil</a>
+            <a href="SQL.html">Requetes</a>
+            <a href="TEAM.html">L'équipe</a>
+        </div>
+    </nav>
+    <nav class="nav-page">
+        <a href="#Github">Github</a>
+        <a href="#Team">Notre team</a>
+    </nav>
 <main>
     <section>
         <h2 class="title-center">Notre Github</h2>
+        <p>Nous avons créé un Github afin de mettre en commun nos mises à jour en commun.
+            Vous pouvez y acceder en cliquant sur le bouton ci-dessous.
+        </p>
     </section>
-    <a href="https://github.com/garitaur/SAE-1.04" class="Temp-button">GitHub</a>
+    <a href="https://github.com/garitaur/SAE-1.04" class="button-container" target="_blank">
+        <button>Notre GitHub</button>
+    </a>
+    <input type="checkbox" id="download-button">
+    <label for="download-button" class="floating-btn">
+        <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
+    </label>
+    <div class="download-menu">
+        <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
+        <a href="/assets/Rapport/">Michèle L</a>
+        <a href="/assets/Rapport/">Noah</a>
+        <a href="/assets/Rapport/">Yasmine</a>
+    </div>
 
 
     <section id="Team">
@@ -52,34 +69,43 @@
         </label>
     </div>
     <section class="InfosTeam">
+        <div class="track">
 
-        <div class="fiche garitaur-fiche">
-            <h2>Garitaur</h2>
-            <ul>
-                <li>Création structures de base</li>
-                <li>Création Pages</li>
-                <li>Création CSS</li>
-            </ul>
-        </div>
+            <div class="fiche garitaur-fiche">
+                <h2>Garitaur - Victor BULOT</h2>
+                <q><strong>If you cant beat fear, do it scared.</strong></q>
+                <ul>
+                    <li>Création du repo GitHub et structures du projet</li>
+                    <li>Création Pages html et CSS</li>
+                    <li>Création de la page TEAM</li>
+                    <li>Création du menu "Burger" et système Anchor</li>
+                    <li>Création de class comme center-title (centré les titres) ou txtred (formatage pour SQL)</li>
+                    <li>Séparation en plusieurs CSS pour une meilleure lisibilité</li>
+                    <li>Création du bouton Download avec son menu associé</li>
+                </ul>
+            </div>
 
-        <div class="fiche sfsq-fiche">
-            <h2>Sfsq</h2>
-            <ul>
-                <li>...</li>
-            </ul>
-        </div>
-        <div class="fiche guest-fiche">
-            <h2>Guest</h2>
-            <ul>
-                <li>...</li>
-            </ul>
-        </div>
+            <div class="fiche sfsq-fiche">
+                <h2>Sfsq</h2>
+                <ul>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div class="fiche guest-fiche">
+                <h2>Guest</h2>
+                <ul>
+                    <li>...</li>
+                </ul>
+            </div>
 
-        <div class="fiche iisjabbe-fiche">
-            <h2>Iisjabbe</h2>
-            <ul>
-                <li>...</li>
-            </ul>
+            <div class="fiche iisjabbe-fiche">
+                <h2>Iisjabbe</h2>
+                <ul>
+                    <li>Travail particulier sur la page Acceuil</li>
+                    <li>Création des templates pour les réponses SQL, Tableau, pre</li>
+
+                </ul>
+            </div>
         </div>
     </section>
 
