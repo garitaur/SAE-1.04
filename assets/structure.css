@@ -1,0 +1,102 @@
+:root {
+    --bg-page : #F9EAE1;
+    --bg-header: #CC8B86;
+    --bg-nav: #7D4F50;
+    --bg-navlink: #6c4546;
+    --bg-main:#D1BE9C ;
+    --bg-footer: #CC8B86;
+    --bg-section: #AA998F;
+    --text-secondary: #F9EAE1;
+    --color-hover:#AA998F;
+    /*--color : #CC8B86;*/
+}
+
+body {
+    background-color: var(--bg-page);
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+
+    grid-template-areas:
+    "header header"
+    "navPage main"
+    "footer footer";
+}
+
+header{
+    background-color: var(--bg-header);
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family:"Bodoni MT";
+    font-size: 100px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 10px;
+
+}
+main{
+    background-color: var(--bg-main);
+    grid-area: main;
+    border-radius: 20px 0 0 20px;
+
+}
+/*Couleurs pour le footers*/
+footer{
+    background-color: var(--bg-footer);
+    grid-area: footer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    margin-top: 10px;
+}
+
+
+section{
+    margin: 10px;
+    background-color: var(--bg-section);
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color: var(--text-secondary);
+}
+ul{
+    list-style-type: none;
+}
+h2.title-center{
+    text-align: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+p,pre{
+    padding: 10px;
+}
+table{
+    border: 1px solid black;
+}
+q{
+    font-family: "Copperplate Gothic Bold";
+    color: var(--text-secondary);
+    font-size: 20px;
+}
+
+thead{
+    background-color: var(--bg-header);
+}
+
+tbody{
+    background-color: var(--bg-main);
+    border-collapse: separate;
+    border-spacing: 12px;
+}
+
+td{
+    padding: 8px 12px;
+}
+

@@ -72,10 +72,14 @@ main{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 30px;
+    font-size: 18px;
     border-radius: 0 20px 20px 0;
     margin-right: 4px;
 }
+.nav-page.a{
+    margin: 6px 10px;
+}
+
 
 /*bouton ouvrir le menu*/
 .menu-button {
@@ -165,7 +169,6 @@ div.Team {
     display: flex;
     justify-content: space-around;
 }
-
 img.TeamParticipant {
     border-radius: 50%;
     cursor: pointer;
@@ -180,37 +183,6 @@ img.TeamParticipant:hover {
 /* Survol : les autres images deviennent plus transparentes */
 div.Team:has(img:hover) img.TeamParticipant:not(:hover) {
     opacity: 0.8;
-}
-
-/* Fiches masquées par défaut */
-.fiche {
-    display: none;
-}
-
-/* Affichage de la fiche : le radio est un frère de .InfosTeam */
-#garitaur:checked ~ .InfosTeam .garitaur-fiche,
-#sfsq:checked     ~ .InfosTeam .sfsq-fiche,
-#guest:checked    ~ .InfosTeam .guest-fiche,
-#iisjabbe:checked ~ .InfosTeam .iisjabbe-fiche {
-    display: block;
-}
-
-/* Contour sur l'image sélectionnée */
-#garitaur:checked ~ .Team label[for="garitaur"] img,
-#sfsq:checked     ~ .Team label[for="sfsq"] img,
-#guest:checked    ~ .Team label[for="guest"] img,
-#iisjabbe:checked ~ .Team label[for="iisjabbe"] img {
-    outline: 4px solid var(--bg-nav);
-    outline-offset: 4px;
-}
-
-.Temp-button {
-    display: inline-flex;
-    padding: 10px 20px;
-    background-color: var(--bg-nav);
-    text-decoration: none;
-    border-radius: 5px;
-    justify-content: center;
 }
 
 table{
@@ -231,19 +203,150 @@ td{
     padding: 8px 12px;
 }
 
-.centre{
+/* Fiches masquées par défaut
+.fiche {
+    display: none;
+}*/
+
+/* Affichage de la fiche : le radio est un frère de .InfosTeam
+#garitaur:checked ~ .InfosTeam .garitaur-fiche,
+#sfsq:checked     ~ .InfosTeam .sfsq-fiche,
+#guest:checked    ~ .InfosTeam .guest-fiche,
+#iisjabbe:checked ~ .InfosTeam .iisjabbe-fiche {
+    display: block;
+}
+V1.
+*/
+
+
+
+/* Fenêtre visible : cache ce qui dépasse */
+.InfosTeam {
+    overflow: hidden;
+}
+.track {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 400%;
+    transition: transform 0.3s ease-in-out;
+}
+.fiche {
+    flex: 0 0 25%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+/* Position de la piste selon la personne cochée */
+#garitaur:checked ~ .InfosTeam .track { transform: translateX(0); }
+#sfsq:checked     ~ .InfosTeam .track { transform: translateX(-25%); }
+#guest:checked    ~ .InfosTeam .track { transform: translateX(-50%); }
+#iisjabbe:checked ~ .InfosTeam .track { transform: translateX(-75%); }
+
+/* Contour sur l'image sélectionnée*/
+#garitaur:checked ~ .Team label[for="garitaur"] img,
+#sfsq:checked     ~ .Team label[for="sfsq"] img,
+#guest:checked    ~ .Team label[for="guest"] img,
+#iisjabbe:checked ~ .Team label[for="iisjabbe"] img {
+    outline: 4px solid var(--bg-nav);
+    outline-offset: 4px;
+    transform: scale(1.05);
 }
 
 button{
     background-color: var(--bg-nav);
     color: var(--text-secondary);
     border-radius: 8px;
-    padding: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 button:hover{
     background-color: var(--color-hover);
+}
+.button-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#redtxt{
+    color: darkred;
+}
+
+
+
+/* Cache la checkbox */
+#download-button {
+    display: none;
+}
+
+/* Bouton flottant */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-nav);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+
+    box-shadow: 0 5px 15px var(--bg-navlink);
+    transition: transform 0.2s ease;
+}
+.floating-btn:hover {
+    transform: scale(1.08);
+}
+
+.floating-btn img {
+    width: 50px;
+    height: 50px;
+}
+.download-menu {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background: var(--bg-nav);
+    padding: 15px;
+    border-radius: 15px;
+
+    min-width: 220px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+/* Liens */
+.download-menu a {
+    text-decoration: none;
+    color: white;
+    background: var(--bg-navlink);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.download-menu a:hover {
+    transform: translateX(-5px);
+    background: var(--color-hover);
+}
+
+/* Ouverture */
+#download-button:checked ~ .download-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
