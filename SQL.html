@@ -4,47 +4,60 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Compte Rendu</title>
-    <link rel="stylesheet" href="assets/style.css"/>
-    <link rel="stylesheet" href="assets/structure.css"/>
+    <link rel="stylesheet" href="assets/structure.css" /> <!-- Un liens pour tous les controler.. -->
 </head>
 <body>
 <header>requetes SQL</header>
-    <nav class="Nav-mobile">
-        <label for="toggle" class="menu-button">☰</label>
-        <input type="checkbox" id="toggle">
-        <div class="menu">
-            <a href="index.html">Acceuil</a>
-            <a href="SQL.html">Requetes</a>
-            <a href="TEAM.html">L'équipe</a>
-        </div>
-    </nav>
-    <nav class="nav-page">
-        <a href="#requete1">Requête 1</a>
-        <a href="#requete2">Requête 2</a>
-        <a href="#requete3">Requête 3</a>
-        <a href="#requete4">Requête 4</a>
-        <a href="#requete5">Requête 5</a>
-    </nav>
-    <input type="checkbox" id="download-button">
-    <label for="download-button" class="floating-btn">
-        <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
-    </label>
-    <div class="download-menu">
-        <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
-        <a href="/assets/Rapport/">Michèle L</a>
-        <a href="/assets/Rapport/">Noah</a>
-        <a href="/assets/Rapport/">Yasmine</a>
+<nav class="Nav-mobile">
+    <label for="toggle" class="menu-button">☰</label>
+    <input type="checkbox" id="toggle">
+    <div class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="SQL.html">Requêtes</a>
+        <a href="TEAM.html">L'équipe</a>
     </div>
+</nav>
+<nav class="nav-page">
+    <details class="nav-group">
+        <summary>Requête 1</summary>
+        <div class="nav-sub">
+            <a href="#requete1">1)a</a>
+            <a href="#requete1b">1)b</a>
+            <a href="#requete1c">1)c</a>
+            <a href="#requete1d">1)d</a>
+            <a href="#requete1e">1)e</a>
+            <a href="#requete1f">1)f</a>
+            <a href="#requete1g">1)g</a>
+            <a href="#requete1h">1)h</a>
+            <a href="#requete1i">1)i</a>
+            <a href="#requete1j">1)j</a>
+        </div>
+    </details>
+    <a href="#requete2">Requête 2</a>
+    <a href="#requete3">Requête 3</a>
+    <a href="#requete4">Requête 4</a>
+    <a href="#requete5">Requête 5</a>
+</nav>
+<input type="checkbox" id="download-button">
+<label for="download-button" class="floating-btn">
+    <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
+</label>
+<div class="download-menu">
+    <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
+    <a href="/assets/Rapport/">Michèle L</a>
+    <a href="/assets/Rapport/">Noah</a>
+    <a href="/assets/Rapport/">Yasmine</a>
+</div>
 
 
 <main>
     <section id="requete1">
         <h2>Requête 1)a:</h2>
         <div class="requete">
-        <pre>SELECT Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
-FROM Clientele
-WHERE Clientele.Ville = "Paris"
-ORDER BY Clientele.societe;</pre>
+        <pre><strong class="redtxt">SELECT</strong> Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
+<strong class="redtxt">FROM</strong> Clientele
+<strong class="redtxt">WHERE</strong> Clientele.Ville <strong class="bluetxt">=</strong> "Paris"
+<strong class="redtxt">ORDER BY</strong> Clientele.societe;</pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -98,39 +111,159 @@ ORDER BY Clientele.societe;</pre>
     </section>
 
 
-    <section>
+    <section id="requete1b">
+        <h2>Requête 1)b:</h2>
+        <div class="requete">
+            <pre></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1c">
+        <h2>Requête 1)c:</h2>
+        <div class="requete">
+        <pre><strong class="redtxt">SELECT</strong> pds.NomProd, cat.NomCateg ,pds.CoutAchat
+<strong class="redtxt">FROM</strong> (((produit <strong class="redtxt">AS</strong> pds
+<strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr <strong class="redtxt">ON</strong> pds.NoFour <strong class="bluetxt">=</strong> fnsr.NoFour)<strong class="redtxt">INNER JOIN</strong> Pays <strong class="redtxt">ON</strong>
+Pays.NoPays <strong class="bluetxt">=</strong> fnsr.NoPays)
+<strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> cat <strong class="redtxt">ON</strong> cat.CodeCateg <strong class="bluetxt">=</strong> pds.CodeCateg)
+<strong class="redtxt">WHERE</strong> (cat.NomCateg <strong class="bluetxt">=</strong> "Viandes" <strong class="redtxt">OR</strong> cat.NomCateg <strong class="redtxt">LIKE</strong> "Poissons*") <strong class="redtxt">AND</strong>
+(pds.CoutAchat <strong class="bluetxt">&gt;</strong>50)
+<strong class="redtxt">ORDER BY</strong> cat.NomCateg, pds.CoutAchat, Pays.PaysEN</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom produit</th>
+                    <th>NomCateg</th>
+                    <th>CoutAchat</th>
+                    <th>Societe</th>
+                    <th>PaysEN</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Carnarvon Tigers</td>
+                    <td>Poissons et fruits de mer</td>
+                    <td>52,08 €</td>
+                    <td>Coral Bay Delights Ltd.</td>
+                    <td>Australia</td>
+                </tr>
+                <tr>
+                    <td>Dea Surströmming</td>
+                    <td>Poissons et fruits de mer</td>
+                    <td>120,00 €</td>
+                    <td>SkandiDelikat AB</td>
+                    <td>Sweden</td>
+                </tr>
+                <tr>
+                    <td>Tourtière</td>
+                    <td>Viandes</td>
+                    <td>56,21 €</td>
+                    <td>Le Panier du Coin</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Pâté chinois</td>
+                    <td>Viandes</td>
+                    <td>68,00 €</td>
+                    <td>Le Panier du Coin</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Mishi Kobe Niku</td>
+                    <td>Viandes</td>
+                    <td>80,83 €</td>
+                    <td>Sakura Imports</td>
+                    <td>Japan</td>
+                </tr>
+                <tr>
+                    <td>Perth Pasties</td>
+                    <td>Viandes</td>
+                    <td>97,33 €</td>
+                    <td>Boomerang Goods Pty Ltd.</td>
+                    <td>Australia</td>
+                </tr>
+                <tr>
+                    <td>Thüringer Rostbratwurst</td>
+                    <td>Viandes</td>
+                    <td>103,16 €</td>
+                    <td>TanteGreta Handelsgruppe AG</td>
+                    <td>Germany</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1d">
+        <h2>Requête 1)d:</h2>
+        <div class="requete">
+            <pre></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1e">
         <h2>Requête 1)e:</h2>
         <div class="requete">
-        <pre>SELECT Fournisseur.Societe, Categorie.NomCateg
-FROM Fournisseur INNER JOIN
-(Categorie SELECT
+        <pre><strong class="redtxt">SELECT</strong> Fournisseur.Societe, Categorie.NomCateg
+<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">INNER JOIN</strong>
+(Categorie <strong class="redtxt">SELECT</strong>
     Fournisseur.Societe
-FROM
+<strong class="redtxt">FROM</strong>
     Fournisseur
-WHERE
-    Fournisseur.NoFour IN (
-        SELECT DISTINCT
+<strong class="redtxt">WHERE</strong>
+    Fournisseur.NoFour <strong class="redtxt">IN</strong> (
+        <strong class="redtxt">SELECT</strong> <strong class="redtxt">DISTINCT</strong>
             Fournisseur.NoFour
-        FROM
+        <strong class="redtxt">FROM</strong>
             (
                 Fournisseur
-                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour
+                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="bluetxt">=</strong> Produit.NoFour
             )
-            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
-        WHERE
-            Categorie.NomCateg IN ("Viandes")
+            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg <strong class="bluetxt">=</strong> Categorie.CodeCateg
+        <strong class="redtxt">WHERE</strong>
+            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Viandes")
     )
-    AND Fournisseur.NoFour IN (
-        SELECT DISTINCT
+    <strong class="redtxt">AND</strong> Fournisseur.NoFour <strong class="redtxt">IN</strong> (
+        <strong class="redtxt">SELECT</strong> <strong class="redtxt">DISTINCT</strong>
             Fournisseur.NoFour
-        FROM
+        <strong class="redtxt">FROM</strong>
             (Fournisseur
-                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour)
-            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
-        WHERE
-            Categorie.NomCateg IN ("Poissons et fruits de mer")
+                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="bluetxt">=</strong> Produit.NoFour)
+            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg <strong class="bluetxt">=</strong> Categorie.CodeCateg
+        <strong class="redtxt">WHERE</strong>
+            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Poissons et fruits de mer")
     )
-ORDER BY
+<strong class="redtxt">ORDER BY</strong>
     Fournisseur.Societe;</pre>
             <p>Le résultat :</p>
             <table>
@@ -150,17 +283,186 @@ ORDER BY
             </table>
         </div>
     </section>
+
+
+    <section id="requete1f">
+        <h2>Requête 1)f:</h2>
+        <div class="requete">
+            <pre></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1g">
+        <h2>Requête 1)g:</h2>
+        <div class="requete">
+        <pre><strong class="redtxt">SELECT</strong> <strong class="redtxt">TOP3</strong> cltl.contact,cltl.Adresse,cltl.Tel,cmd.DateCde
+<strong class="redtxt">FROM</strong> (Clientele <strong class="redtxt">AS</strong> Cltl
+<strong class="redtxt">INNER JOIN</strong> Commande <strong class="redtxt">AS</strong> cmd <strong class="redtxt">ON</strong> cltl.CodeCli <strong class="bluetxt">=</strong> cmd.CodeCli)
+<strong class="redtxt">WHERE</strong> cltl.contact <strong class="bluetxt">=</strong> "Max Deschamps"
+<strong class="redtxt">ORDER BY</strong> cltl.contact,cltl.Tel,cmd.DateCde, cltl.Adresse</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>N° commande</th>
+                    <th>contact</th>
+                    <th>Adresse</th>
+                    <th>Tel</th>
+                    <th>DateCde</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>10052</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>11/05/2021</td>
+                </tr>
+                <tr>
+                    <td>10117</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>08/02/2021</td>
+                </tr>
+                <tr>
+                    <td>10298</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>16/10/2021</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1h">
+        <h2>Requête 1)h:</h2>
+        <div class="requete">
+            <pre></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1i">
+        <h2>Requête 1)i:</h2>
+        <div class="requete">
+        <pre><strong class="redtxt">SELECT</strong> fnsr.*
+<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr
+<strong class="redtxt">INNER JOIN</strong> (Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="bluetxt">=</strong> fnsr.NoPays
+<strong class="redtxt">LEFT JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON</strong> pds.NoFour <strong class="bluetxt">=</strong> fnsr.NoFour)
+<strong class="redtxt">WHERE</strong> pds.RefProd <strong class="redtxt">IS NULL</strong>
+<strong class="redtxt">AND</strong> Pays.PaysEN <strong class="bluetxt">&lt;&gt;</strong> "France"
+<strong class="redtxt">ORDER BY</strong> fnsr.Societe, fnsr.NoFour, fnsr.Adressec</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Societe</th>
+                    <th>Contact</th>
+                    <th>Fonction</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Region</th>
+                    <th>CP</th>
+                    <th>NoPays</th>
+                    <th>Tel</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>36</td>
+                    <td>Pacific United Traders Ltd.</td>
+                    <td>Charlie Colley</td>
+                    <td>Acheteur</td>
+                    <td>254 King's Way OldHunter's Hill</td>
+                    <td>Sydney</td>
+                    <td>THE</td>
+                    <td>3144</td>
+                    <td></td>
+                    <td>2 555-8237-2432</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>Sabor do Sul Ltda.</td>
+                    <td>Helena Carbo</td>
+                    <td>Représentant(e)</td>
+                    <td>Av. das Merãos 11.860</td>
+                    <td>Rio de Janeiro</td>
+                    <td></td>
+                    <td>20211</td>
+                    <td></td>
+                    <td>3 (11) 309 7634</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="requete1j">
+        <h2>Requête 1)j:</h2>
+        <div class="requete">
+            <pre></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
     <section id="requete2">
         <h2>Requête 2:</h2>
         <div class="requete">
-        <pre>SELECT SUM (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
-FROM ((Pays INNER JOIN Fournisseur
-	ON Pays.NoPays = Fournisseur.NoPays)
-INNER JOIN Produit
-	ON Fournisseur.NoFour = Produit.NoFour)
-INNER JOIN DetailCommande
-	ON Produit.RefProd = DetailCommande.[Réf produit]
-WHERE Pays.UE = "Membre";</pre>
+        <pre><strong class="redtxt">SELECT</strong> SUM (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
+<strong class="redtxt">FROM</strong> ((Pays <strong class="redtxt">INNER JOIN</strong> Fournisseur
+	<strong class="redtxt">ON</strong> Pays.NoPays <strong class="bluetxt">=</strong> Fournisseur.NoPays)
+<strong class="redtxt">INNER JOIN</strong> Produit
+	<strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="bluetxt">=</strong> Produit.NoFour)
+<strong class="redtxt">INNER JOIN</strong> DetailCommande
+	<strong class="redtxt">ON</strong> Produit.RefProd <strong class="bluetxt">=</strong> DetailCommande.[Réf produit]
+<strong class="redtxt">WHERE</strong> Pays.UE <strong class="bluetxt">=</strong> "Membre";</pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -179,16 +481,16 @@ WHERE Pays.UE = "Membre";</pre>
     <section id="requete4">
         <h2>Requête 4</h2>
         <div class="requete">
-        <pre><strong id="redtxt">SELECT TOP 25</strong>
+        <pre><strong class="redtxt">SELECT TOP 25</strong>
     pds.RefProd,
     pds.NomProd,
     pds.CoutAchat,
     dcmd.[Remise (%)],
-    SUM(dcmd.Quantité) AS QuantiteVendue
-<strong id="redtxt">FROM</strong> Produit AS pds
-<strong id="redtxt">INNER JOIN</strong> DetailCommande <strong id="redtxt">AS</strong> dcmd <strong id="redtxt">ON</strong> pds.RefProd <strong id="redtxt">=</strong> dcmd.[Réf produit]
-<strong id="redtxt">GROUP BY</strong> pds.RefProd, pds.NomProd, pds.CoutAchat, dcmd.[Remise (%)]
-<strong id="redtxt">ORDER BY</strong> SUM(dcmd.Quantité) <strong id="redtxt">ASC</strong>, pds.CoutAchat <strong id="redtxt">DESC</strong>
+    SUM(dcmd.Quantité) <strong class="redtxt">AS</strong> QuantiteVendue
+<strong class="redtxt">FROM</strong> Produit <strong class="redtxt">AS</strong> pds
+<strong class="redtxt">INNER JOIN</strong> DetailCommande <strong class="redtxt">AS</strong> dcmd <strong class="redtxt">ON</strong> pds.RefProd <strong class="bluetxt">=</strong> dcmd.[Réf produit]
+<strong class="redtxt">GROUP BY</strong> pds.RefProd, pds.NomProd, pds.CoutAchat, dcmd.[Remise (%)]
+<strong class="redtxt">ORDER BY</strong> SUM(dcmd.Quantité) <strong class="redtxt">ASC</strong>, pds.CoutAchat <strong class="redtxt">DESC</strong>
 </pre>
             <p>Le résultat :</p>
             <table>
