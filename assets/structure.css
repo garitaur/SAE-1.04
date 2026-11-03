@@ -6,6 +6,7 @@
     --bg-main:#D1BE9C ;
     --bg-footer: #CC8B86;
     --bg-section: #AA998F;
+    --bg-under-section : #bdaca1;
     --text-secondary: #F9EAE1;
     --color-hover:#AA998F;
     /*--color : #CC8B86;*/
@@ -74,9 +75,26 @@ h2.title-center{
     gap: 20px;
     padding: 10px 0;
 }
+
 p,pre{
     padding: 10px;
+    background-color: var(--bg-under-section);
+    border-radius: 15px;
+    width: fit-content;
 }
+
+pre{
+    /*POLICE CODE*/
+}
+
+div.consignes{
+    width: fit-content;
+    background-color: var(--bg-under-section);
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 20px;
+}
+
 table{
     border: 1px solid black;
 }
@@ -98,5 +116,8 @@ tbody{
 
 td{
     padding: 8px 12px;
+}
+.redtxt{
+    color: darkred;
 }
 

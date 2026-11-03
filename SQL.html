@@ -347,7 +347,8 @@ INNER JOIN Produit
 	ON Fournisseur.NoFour = Produit.NoFour)
 INNER JOIN DetailCommande
 	ON Produit.RefProd = DetailCommande.[Réf produit]
-WHERE Pays.UE = "Membre";</pre>
+WHERE Pays.UE = "Membre";
+        </pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -363,7 +364,33 @@ WHERE Pays.UE = "Membre";</pre>
             </table>
         </div>
     </section>
-    /*--mettez vos requetes jusqu'a la 5eme*/
+    <section id="requete4">
+        <h2>Requête 4:</h2>
+
+        <div class="consignes">Dans une réflexion en lien avec l’offre commerciale : Calcul de l’indicateur nombre de produits carnés non commandés actuellement ?</div>
+            <pre>
+<strong class="redtxt">COUNT(*) AS </strong> NbProduitsNonCommandes
+<strong class="redtxt">FROM </strong>(Categorie <strong class="redtxt"> AS</strong> cat <strong class="redtxt"> INNER JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON </strong>cat.CodeCateg <strong class="redtxt">=</strong> pds.CodeCateg)
+<strong class="redtxt">LEFT JOIN </strong> DetailCommande <strong class="redtxt">AS</strong> dcmd <strong class="redtxt">ON </strong>dcmd.[Réf produit] <strong class="redtxt">= </strong>pds.RefProd
+<strong class="redtxt">WHERE </strong>cat.NomCateg = "Viandes"
+<strong class="redtxt">AND </strong>dcmd.[Réf produit] <strong class="redtxt">IS NULL</strong>
+</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>NbProduitsNo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2</td>
+                </tr>
+                </tbody>
+            </table>
+
+    </section>
+
 
 </main>
 <footer>&copy; 2026 – Compte rendu</footer>

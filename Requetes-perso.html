@@ -30,7 +30,7 @@
 </nav>
 <main>
 
-    <section id="vic">
+    <section id="Vic">
         <h2 class="title-center">Requête Victor</h2>
         <div class="requete">
         <pre><strong class="redtxt">SELECT TOP 25</strong>
@@ -235,10 +235,48 @@
             </table>
         </div>
     </section>
-
-
-
-
+    <section id="Noa">
+        <h2 class="title-center">Requête Noah</h2>
+        <div class="requete">
+            <p>Quels sont les couples (client pilote, client partenaire) qui ont le même nombre de commandes ?</p>
+            <pre>
+<strong class="redtxt">SELECT</strong>
+    Pilote.CodeCli,
+    Pilote.Societe,
+    Partenaire.CodeCli AS CodePartenaire,
+    Partenaire.Societe AS SocietePartenaire
+<strong class="redtxt">FROM</strong>Clientele AS Pilote
+<strong class="redtxt">INNER JOIN</strong> Clientele AS Partenaire ON Pilote.CodeCli = Partenaire.CodeCli
+<strong class="redtxt">WHERE</strong>(
+<strong class="redtxt">SELECT</strong>
+<strong class="redtxt">COUNT(*)</strong>
+<strong class="redtxt">FROM</strong>Commande
+<strong class="redtxt">WHERE</strong>Commande.CodeCli = Pilote.CodeCli) =(
+<strong class="redtxt">SELECT</strong>
+<strong class="redtxt">COUNT(*)</strong>
+<strong class="redtxt">FROM</strong>Commande
+<strong class="redtxt">WHERE</strong>Commande.CodeCli = Partenaire.CodeCli);
+</pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>CodeCli</th>
+                    <th>Societe</th>
+                    <th>CodePa</th>
+                    <th>SocietePartenaire</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>NOSGK</td>
+                    <td>Le Nostradamu</td>
+                    <td>ISAEP</td>
+                    <td>Petite Épicerie</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
 </main>

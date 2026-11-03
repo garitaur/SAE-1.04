@@ -247,35 +247,32 @@ td{
     transform: scale(1.05);
 }
 
-button{
+
+
+
+button, .link-button{
     background-color: var(--bg-nav);
     color: var(--text-secondary);
     border-radius: 25px;
     padding: 8px;
-    margin: 10px;
-
-
     display: flex;
     justify-content: center;
     flex-direction: row;
 
     transform: scale(1.3);
+    width: fit-content;
 
-}
-
-button:hover{
-    background-color: var(--color-hover);
 }
 .button-container{
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items: center;
-}
-.redtxt{
-    color: darkred;
+    flex-direction: row;
+    gap: 5rem;
 }
 
-
+.link-button:hover, button:hover{
+    background-color: var(--color-hover);
+}
 
 /* Cache la checkbox */
 #download-button {
