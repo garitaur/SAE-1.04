@@ -13,8 +13,14 @@
         <label for="toggle" class="menu-button">☰</label>
         <input type="checkbox" id="toggle">
         <div class="menu">
+<<<<<<< HEAD
             <a href="index.html">Acceuil</a>
             <a href="SQL.html">Requetes</a>
+=======
+            <a href="index.html">Accueil</a>
+            <a href="SQL.html">Requêtes</a>
+            <a href="Requetes-perso.html">Requête individuelle</a>
+>>>>>>> b77a59d7839f584686fd59f4a908c0c0f979aca7
             <a href="TEAM.html">L'équipe</a>
         </div>
     </nav>
@@ -96,6 +102,87 @@ ORDER BY Clientele.societe;</pre>
             </table>
         </div>
     </section>
+<<<<<<< HEAD
+=======
+    <section>
+        <h2>Requête 1)c:</h2>
+        <div class="requete">
+        <pre><code>
+<strong class="redtxt">SELECT</strong> pds.NomProd, cat.NomCateg ,pds.CoutAchat
+<strong class="redtxt">FROM</strong> (((produit <strong class="redtxt">AS</strong> pds
+<strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)<strong class="redtxt">INNER JOIN</strong> Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays)
+<strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> cat <strong class="redtxt">ON</strong> cat.CodeCateg <strong class="redtxt">=</strong> pds.CodeCateg)
+<strong class="redtxt">WHERE</strong> (cat.NomCateg <strong class="redtxt">=</strong> "Viandes" <strong class="redtxt">OR</strong> cat.NomCateg <strong class="redtxt">LIKE</strong> "Poissons*") <strong class="redtxt">AND</strong>
+(pds.CoutAchat <strong class="redtxt">></strong>50)
+<strong class="redtxt">ORDER BY</strong> cat.NomCateg, pds.CoutAchat, Pays.PaysEN
+        </code></pre>
+
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom produit</th>
+                    <th>NomCateg</th>
+                    <th>CoutAchat</th>
+                    <th>Societe</th>
+                    <th>PaysEN</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Carnavon Tigers</td>
+                    <td>Poissons et fruits de mer</td>
+                    <td>52,08 €</td>
+                    <td>Coral Bay Delights Ltd.</td>
+                    <td>Australia</td>
+                </tr>
+                <tr>
+                    <td>Dea Surströmming</td>
+                    <td>Poissons et fruits de mer</td>
+                    <td>120,00 €</td>
+                    <td>SkandiDelikat AB</td>
+                    <td>Sweden</td>
+                </tr>
+                <tr>
+                    <td>Tourtière</td>
+                    <td>Viandes</td>
+                    <td>56,21 €</td>
+                    <td>Le Panier du Coin</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Pâté chinois</td>
+                    <td>Viandes</td>
+                    <td>68,00 €</td>
+                    <td>Le Panier du Coin</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Mishi Kobe Niku</td>
+                    <td>Viandes</td>
+                    <td>80,83 €</td>
+                    <td>Sakura Imports</td>
+                    <td>Japan</td>
+                </tr>
+                <tr>
+                    <td>Perth Pasties</td>
+                    <td>Viandes</td>
+                    <td>97,33 €</td>
+                    <td>Boomerang Goods Pty Ltd.</td>
+                    <td>Australia</td>
+                </tr>
+                <tr>
+                    <td>Thüringer Rostbratwurst</td>
+                    <td>Viandes</td>
+                    <td>103,16 €</td>
+                    <td>TanteGreta Handelsgruppe AG</td>
+                    <td>Germany</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+>>>>>>> b77a59d7839f584686fd59f4a908c0c0f979aca7
 
 
     <section>
@@ -150,6 +237,117 @@ ORDER BY
             </table>
         </div>
     </section>
+<<<<<<< HEAD
+=======
+    <section>
+        <h2>Requête 1)g:</h2>
+        <div class="requete">
+        <pre><code>
+<strong class="redtxt">SELECT TOP3</strong> cltl.contact,cltl.Adresse,cltl.Tel,cmd.DateCde
+<strong class="redtxt">FROM</strong> (Clientele <strong class="redtxt">AS</strong> Cltl
+<strong class="redtxt">INNER JOIN</strong> Commande <strong class="redtxt">AS</strong> cmd <strong class="redtxt">ON</strong> cltl.CodeCli <strong class="redtxt">=</strong> cmd.CodeCli)
+<strong class="redtxt">WHERE</strong> cltl.contact <strong class="redtxt">=</strong> "Max Deschamps"
+<strong class="redtxt">ORDER BY</strong> cltl.contact,cltl.Tel,cmd.DateCde, cltl.Adresse
+        </code></pre>
+
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>N° commande</th>
+                    <th>contact</th>
+                    <th>Adresse</th>
+                    <th>Tel</th>
+                    <th>DateCde</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>10052</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>11/05/2021</td>
+                </tr>
+                <tr>
+                    <td>10117</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>08/02/2021</td>
+                </tr>
+                <tr>
+                    <td>10298</td>
+                    <td>Max Deschamps</td>
+                    <td>Le Bourg</td>
+                    <td>03 84 70 65 89</td>
+                    <td>16/10/2021</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <h2>Requête 1)i:</h2>
+        <div class="requete">
+        <pre><code>
+<strong class="redtxt">SELECT</strong> fnsr.*
+<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr
+<strong class="redtxt">INNER JOIN</strong> (Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays
+<strong class="redtxt">LEFT JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)
+<strong class="redtxt">WHERE</strong> pds.RefProd <strong class="redtxt">IS NULL</strong>
+<strong class="redtxt">AND</strong> Pays.PaysEN <strong class="redtxt">&lt;&gt;</strong> "France"
+<strong class="redtxt">ORDER BY</strong> fnsr.Societe, fnsr.NoFour, fnsr.Adressec
+        </code></pre>
+
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Societe</th>
+                    <th>Contact</th>
+                    <th>Fonction</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Region</th>
+                    <th>CP</th>
+                    <th>NoPays</th>
+                    <th>Tel</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>36</td>
+                    <td>Pacific United Traders Ltd.</td>
+                    <td>Charlie Colley</td>
+                    <td>Acheteur</td>
+                    <td>254 King's Way Old Hunter's Hill</td>
+                    <td>Sydney</td>
+                    <td>THE</td>
+                    <td>3144</td>
+                    <td>2</td>
+                    <td>555-8237-2432</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>Sabor do Sul Ltda.</td>
+                    <td>Helena Carbo</td>
+                    <td>Représentant(e)</td>
+                    <td>Av. das Merãos 11.860</td>
+                    <td>Rio de Janeiro</td>
+                    <td></td>
+                    <td>20211</td>
+                    <td>3</td>
+                    <td>(11) 309 7634</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>Points d’attention sur le LEFT JOIN !! En effet le Inner join ne marche pas car garde uniquement ceux qui ne sont non null.</p>
+        </div>
+    </section>
+>>>>>>> b77a59d7839f584686fd59f4a908c0c0f979aca7
     <section id="requete2">
         <h2>Requête 2:</h2>
         <div class="requete">
@@ -176,6 +374,7 @@ WHERE Pays.UE = "Membre";</pre>
             </table>
         </div>
     </section>
+<<<<<<< HEAD
     <section id="requete4">
         <h2>Requête 4</h2>
         <div class="requete">
@@ -381,6 +580,8 @@ WHERE Pays.UE = "Membre";</pre>
             </table>
         </div>
     </section>
+=======
+>>>>>>> b77a59d7839f584686fd59f4a908c0c0f979aca7
     /*--mettez vos requetes jusqu'a la 5eme*/
 
 </main>
