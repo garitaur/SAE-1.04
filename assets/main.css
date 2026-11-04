@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 /*Un fichier pour tous les contrôler*/
-<link rel="stylesheet" href="assets/css/variables.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/structure.css">
-<link rel="stylesheet" href="assets/css/navigation.css">
-<link rel="stylesheet" href="assets/css/Button.css">
-<link rel="stylesheet" href="assets/css/equipe.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+@import "variables.css";
+@import "base.css";
+@import "structure.css";
+@import "navigation.css";
+@import "Button.css";
+@import "equipe.css";
+@import "responsive.css";
