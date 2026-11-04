@@ -42,10 +42,10 @@
     <section id="requete1">
         <h2>Requête 1)a:</h2>
         <div class="requete">
-        <pre><strong class="redtxt">SELECT</strong> Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
-<strong class="redtxt">FROM</strong> Clientele
-<strong class="redtxt">WHERE</strong> Clientele.Ville = "Paris"
-<strong class="redtxt">ORDER BY</strong> Clientele.societe;</pre>
+        <pre>SELECT Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
+FROM Clientele
+WHERE Clientele.Ville = "Paris"
+ORDER BY Clientele.societe;</pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -180,36 +180,36 @@
     <section>
         <h2>Requête 1)e:</h2>
         <div class="requete">
-        <pre><strong class="redtxt">SELECT</strong> Fournisseur.Societe, Categorie.NomCateg
-<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">INNER JOIN</strong>
-(Categorie <strong class="redtxt">SELECT</strong>
+        <pre>SELECT Fournisseur.Societe, Categorie.NomCateg
+FROM Fournisseur INNER JOIN
+(Categorie SELECT
     Fournisseur.Societe
-<strong class="redtxt">FROM</strong>
+FROM
     Fournisseur
-<strong class="redtxt">WHERE</strong>
-    Fournisseur.NoFour <strong class="redtxt">IN</strong> (
-        <strong class="redtxt">SELECT DISTINCT</strong>
+WHERE
+    Fournisseur.NoFour IN (
+        SELECT DISTINCT
             Fournisseur.NoFour
-        <strong class="redtxt">FROM</strong>
+        FROM
             (
                 Fournisseur
-                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour = Produit.NoFour
+                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour
             )
-            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg = Categorie.CodeCateg
-        <strong class="redtxt">WHERE</strong>
-            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Viandes")
+            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
+        WHERE
+            Categorie.NomCateg IN ("Viandes")
     )
-    <strong class="redtxt">AND</strong> Fournisseur.NoFour <strong class="redtxt">IN</strong> (
-        <strong class="redtxt">SELECT DISTINCT</strong>
+    AND Fournisseur.NoFour IN (
+        SELECT DISTINCT
             Fournisseur.NoFour
-        <strong class="redtxt">FROM</strong>
+        FROM
             (Fournisseur
-                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour = Produit.NoFour)
-            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg = Categorie.CodeCateg
-        <strong class="redtxt">WHERE</strong>
-            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Poissons et fruits de mer")
+                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour)
+            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
+        WHERE
+            Categorie.NomCateg IN ("Poissons et fruits de mer")
     )
-<strong class="redtxt">ORDER BY</strong>
+ORDER BY
     Fournisseur.Societe;</pre>
             <p>Le résultat :</p>
             <table>
@@ -340,14 +340,14 @@
     <section id="requete2">
         <h2>Requête 2:</h2>
         <div class="requete">
-        <pre><strong class="redtxt">SELECT SUM</strong> (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
-<strong class="redtxt">FROM</strong> ((Pays <strong class="redtxt">INNER JOIN</strong> Fournisseur
-	<strong class="redtxt">ON</strong> Pays.NoPays = Fournisseur.NoPays)
-<strong class="redtxt">INNER JOIN</strong> Produit
-	<strong class="redtxt">ON</strong> Fournisseur.NoFour = Produit.NoFour)
-<strong class="redtxt">INNER JOIN</strong> DetailCommande
-	<strong class="redtxt">ON</strong> Produit.RefProd = DetailCommande.[Réf produit]
-<strong class="redtxt">WHERE</strong> Pays.UE = "Membre";</pre>
+        <pre>SELECT SUM (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
+FROM ((Pays INNER JOIN Fournisseur
+	ON Pays.NoPays = Fournisseur.NoPays)
+INNER JOIN Produit
+	ON Fournisseur.NoFour = Produit.NoFour)
+INNER JOIN DetailCommande
+	ON Produit.RefProd = DetailCommande.[Réf produit]
+WHERE Pays.UE = "Membre";</pre>
             <p>Le résultat :</p>
             <table>
                 <thead>

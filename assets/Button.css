@@ -1,0 +1,135 @@
+/*bouton ouvrir le menu*/
+.menu-button {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+/*bouton pour fermer*/
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Liens-boutons dans les titres */
+h2 a{
+    color: var(--bg-section);
+    background-color: black;
+    border-radius: 10px;
+    padding:1px 25px;
+}
+h2 a:hover{
+    color: black;
+    background-color: var(--bg-nav);
+    transform: scale(1.2);
+}
+
+/* Boutons de page */
+.link-button{
+    background-color: var(--bg-nav);
+    color: var(--text-secondary);
+    border-radius: 25px;
+    padding: 8px;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    transform: scale(1.3);
+    width: fit-content;
+}
+.link-button:hover{
+    background-color: var(--color-hover);
+}
+.button-container{
+    display:flex;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+}
+
+/* Cache la checkbox */
+#download-button {
+    display: none;
+}
+
+/* Bouton flottant */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-nav);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+
+    box-shadow: 0 5px 15px var(--bg-navlink);
+    transition: transform 0.2s ease;
+}
+.floating-btn:hover {
+    transform: scale(1.08);
+}
+.floating-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Menu de téléchargement */
+.download-menu {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background: var(--bg-nav);
+    padding: 15px;
+    border-radius: 15px;
+
+    min-width: 220px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+/* Liens */
+.download-menu a {
+    text-decoration: none;
+    color: white;
+    background: var(--bg-navlink);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.2s;
+}
+.download-menu a:hover {
+    transform: translateX(-5px);
+    background: var(--color-hover);
+}
+
+/* Ouverture */
+#download-button:checked ~ .download-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
