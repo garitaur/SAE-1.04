@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 :root {
     --bg-page : #F9EAE1;
     --bg-header: #CC8B86;
@@ -6,8 +9,10 @@
     --bg-main:#D1BE9C ;
     --bg-footer: #CC8B86;
     --bg-section: #AA998F;
+    --bg-under-section: #b3a59c;
     --text-secondary: #F9EAE1;
     --color-hover:#AA998F;
+
     /*--color : #CC8B86;*/
 }
 
@@ -69,14 +74,26 @@ a{
 ul{
     list-style-type: none;
 }
-h2.title-center{
+h2, h2.title-center {
     text-align: center;
     gap: 20px;
     padding: 10px 0;
+    font-family: "Archivo Black", sans-serif;
 }
+pre{
+    font-family: 'IBM Plex Mono', monospace;
+}
+p{
+    font-family: "Source Sans 3", sans-serif;
+}
+
 p,pre{
     padding: 10px;
+    border-radius: 15px;
+    background-color: var(--bg-under-section);
+    width: fit-content;
 }
+
 table{
     border: 1px solid black;
 }
@@ -100,3 +117,7 @@ td{
     padding: 8px 12px;
 }
 
+.CodendExplication-container{
+    display: flex;
+    flex-direction: row;
+}
