@@ -1,0 +1,13 @@
+:root {
+    --bg-page : #F9EAE1;
+    --bg-header: #CC8B86;
+    --bg-nav: #7D4F50;
+    --bg-navlink: #6c4546;
+    --bg-main:#D1BE9C ;
+    --bg-footer: #CC8B86;
+    --bg-section: #AA998F;
+    --bg-under-section: #b3a59c;
+    --text-secondary: #F9EAE1;
+    --color-hover:#AA998F;
+    /*--color : #CC8B86;*/
+}
