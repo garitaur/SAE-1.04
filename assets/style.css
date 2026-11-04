@@ -1,3 +1,5 @@
+/* 1. Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 :root {
     --bg-page : #F9EAE1;
     --bg-header: #CC8B86;
@@ -9,13 +11,17 @@
     --text-secondary: #F9EAE1;
     --color-hover:#AA998F;
     /*--color : #CC8B86;*/
+    /* Polices */
+    --font-code: 'IBM Plex Mono', monospace;
+    --font-title: 'Montserrat', sans-serif;
+    --font-text: 'Source Sans 3', sans-serif;
 }
 
 body {
     background-color: var(--bg-page);
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     display: grid;
     grid-template-columns: 120px 1fr;
     grid-template-rows: 80px 1fr 60px;
@@ -24,11 +30,15 @@ body {
     "header header"
     "navPage main"
     "footer footer";
-
-
-
 }
-
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+pre {
+   font-family:'IBM Plex Mono', monospace;
+    font-size: 14px;
+}
 header{
     background-color: var(--bg-header);
     grid-area: header;

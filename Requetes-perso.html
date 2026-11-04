@@ -236,10 +236,88 @@
         </div>
     </section>
 
+    <section id="yas">
+        <h2 class="title-center">Requête Yasmine</h2>
+        <div class="requete">
+        <pre> <strong class="redtxt">SELECT</strong> P.NomProd, F.Societe,
+       <strong class="redtxt">SUM</strong>(DC.Quantité) AS QuantiteVendue
+<strong class="redtxt">FROM</strong> (Fournisseur AS F
+<strong class="redtxt">INNER</strong> JOIN Produit AS P
+    <strong class="redtxt">ON</strong> F.NoFour = P.NoFour)
+<strong class="redtxt">INNER JOIN</strong> DetailCommande AS DC
+    <strong class="redtxt">ON</strong> P.RefProd = DC.[Réf produit]
+<strong class="redtxt">GROUP BY</strong> P.NomProd, F.Societe
+<strong class="redtxt">ORDER BY</strong> <strong class="redtxt">SUM</strong>(DC.Quantité) ASC;
+</pre>
+            <p>Le résultat :</p>
 
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom produit</th>
+                    <th>Societe</th>
+                    <th>QuantiteVen</th>
+                </tr>
+                </thead>
 
+                <tbody>
+                <tr class="selected">
+                    <td>Mishi Kobe Niku</td>
+                    <td>Sakura Imports</td>
+                    <td>71</td>
+                </tr>
+                <tr>
+                    <td>Gravad lax</td>
+                    <td>Havsmat Sverige AB</td>
+                    <td>115</td>
+                </tr>
+                <tr>
+                    <td>Chocolade</td>
+                    <td>Tulip &amp; Co. Delicacies</td>
+                    <td>168</td>
+                </tr>
+                <tr>
+                    <td>Genen Shouyu</td>
+                    <td>Mayako Foods</td>
+                    <td>185</td>
+                </tr>
+                <tr>
+                    <td>Louisiana Hot Spiced Okra</td>
+                    <td>Bayou Spice Traders</td>
+                    <td>263</td>
+                </tr>
+                <tr>
+                    <td>Laughing Lumberjack Lager</td>
+                    <td>Grizzly Hopworks Co.</td>
+                    <td>280</td>
+                </tr>
+                <tr>
+                    <td>Grandma's Boysenberry Spread</td>
+                    <td>Miss Ruby's Kitchen</td>
+                    <td>324</td>
+                </tr>
+                <tr>
+                    <td>Valkoinen suklaa</td>
+                    <td>MakeaHerkku Oy</td>
+                    <td>325</td>
+                </tr>
+                <tr>
+                    <td>Sir Rodney's Marmalade</td>
+                    <td>Baker's Treats, Ltd.</td>
+                    <td>356</td>
+                </tr>
+                <tr>
+                    <td>Longlife Tofu</td>
+                    <td>Sakura Imports</td>
+                    <td>357</td>
+                </tr>
+                </tbody>
+            </table>
 
+        </div>
     </section>
+
+
 
 </main>
 </body>
