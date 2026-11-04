@@ -1,0 +1,24 @@
+.mobile-warning {
+    display: none;
+}
+
+/* Affiché uniquement sur petits écrans */
+@media (max-width: 768px) {
+
+    body > *:not(.mobile-warning) {
+        display: none !important;
+    }
+
+    .mobile-warning {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        background: #ffffff;
+        color: #222222;
+        z-index: 9999;
+    }
+}
