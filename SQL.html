@@ -1,50 +1,61 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Compte Rendu</title>
-    <link rel="stylesheet" href="assets/main.css"/>
+    <link rel="stylesheet" href="assets/main.css" />
 </head>
 <body>
-<header>requetes SQL</header>
-    <nav class="Nav-mobile">
-        <label for="toggle" class="menu-button">☰</label>
-        <input type="checkbox" id="toggle">
-        <div class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="SQL.html">Requêtes</a>
-            <a href="Requetes-perso.html">Requête individuelle</a>
-            <a href="TEAM.html">L'équipe</a>
-        </div>
-    </nav>
-    <nav class="nav-page">
-        <a href="#requete1">Requête 1</a>
-        <a href="#requete2">Requête 2</a>
-        <a href="#requete3">Requête 3</a>
-        <a href="#requete4">Requête 4</a>
-        <a href="#requete5">Requête 5</a>
-    </nav>
-    <input type="checkbox" id="download-button">
-    <label for="download-button" class="floating-btn">
-        <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
-    </label>
-    <div class="download-menu">
-        <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
-        <a href="/assets/Rapport/">Michèle L</a>
-        <a href="/assets/Rapport/">Noah</a>
-        <a href="/assets/Rapport/">Yasmine</a>
+<div class="mobile-warning">
+    <div>
+        <h2>Version mobile non disponible pour le moment</h2>
+        <p>Merci de consulter ce site sur un ordinateur.</p>
     </div>
+</div>
+<header>Requêtes SQL</header>
+<nav class="Nav-mobile">
+    <label for="toggle" class="menu-button">☰</label>
+    <input type="checkbox" id="toggle">
+    <div class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="SQL.html">Requêtes</a>
+        <a href="Requetes-perso.html">Requête individuelle</a>
+        <a href="TEAM.html">L'équipe</a>
+    </div>
+</nav>
+<nav class="nav-page">
+    <a href="#requete1">Requête 1</a>
+    <a href="#requete2">Requête 2</a>
+    <a href="#requete3">Requête 3</a>
+    <a href="#requete4">Requête 4</a>
+    <a href="#requete5">Requête 5</a>
+</nav>
+<input type="checkbox" id="download-button">
+<label for="download-button" class="floating-btn">
+    <img src="assets/images/icon_download.png" alt="Téléchargements" width="64" height="64">
+</label>
+<div class="download-menu">
+    <a href="/assets/Rapport/Victor_Bulot_111_Compte%20rendu.pdf" download>Victor Bulot</a>
+    <a href="/assets/Rapport/111_LIPATOV_Michèle.pdf">Michèle Lipatov</a>
+    <a href="/assets/Rapport/111_DRILLAUD_Noah.pdf">Noah Drillaud</a>
+    <a href="/assets/Rapport/Yasmine_Asgaraly_111_CRP.pdf">Yasmine Asgaraly</a>
+</div>
 
 
 <main>
+
+    <!-- ===================== REQUÊTE 1 ===================== -->
+
     <section id="requete1">
-        <h2>Requête 1)a:</h2>
+        <h2>Requête 1)a :</h2>
         <div class="requete">
-        <pre>SELECT Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli,Clientele.Ville
-FROM Clientele
-WHERE Clientele.Ville = "Paris"
-ORDER BY Clientele.societe;</pre>
+<pre><code>
+<strong class="redtxt">SELECT</strong> Clientele.Societe, Clientele.Contact, Clientele.Tel, Clientele.MailCli, Clientele.Ville
+<strong class="redtxt">FROM</strong> Clientele
+<strong class="redtxt">WHERE</strong> Clientele.Ville <strong class="redtxt">=</strong> "Paris"
+<strong class="redtxt">ORDER BY</strong> Clientele.Societe;
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -96,19 +107,36 @@ ORDER BY Clientele.societe;</pre>
             </table>
         </div>
     </section>
-    <section>
-        <h2>Requête 1)c:</h2>
-        <div class="requete">
-        <pre><code>
-<strong class="redtxt">SELECT</strong> pds.NomProd, cat.NomCateg ,pds.CoutAchat
-<strong class="redtxt">FROM</strong> (((produit <strong class="redtxt">AS</strong> pds
-<strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)<strong class="redtxt">INNER JOIN</strong> Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays)
-<strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> cat <strong class="redtxt">ON</strong> cat.CodeCateg <strong class="redtxt">=</strong> pds.CodeCateg)
-<strong class="redtxt">WHERE</strong> (cat.NomCateg <strong class="redtxt">=</strong> "Viandes" <strong class="redtxt">OR</strong> cat.NomCateg <strong class="redtxt">LIKE</strong> "Poissons*") <strong class="redtxt">AND</strong>
-(pds.CoutAchat <strong class="redtxt">></strong>50)
-<strong class="redtxt">ORDER BY</strong> cat.NomCateg, pds.CoutAchat, Pays.PaysEN
-        </code></pre>
 
+    <section>
+        <h2>Requête 1)b :</h2>
+        <p>Quels sont les produits de provenance des Etats-Unis avec un coût de moins de 25€ ? On veut connaître les noms et prix, le nom du fournisseur et sa ville.</p>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> Produit.NomProd, Produit.CoutAchat, Fournisseur.Societe, Fournisseur.Ville
+<strong class="redtxt">FROM</strong> ((Produit
+    <strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">ON</strong> Produit.NoFour <strong class="redtxt">=</strong> Fournisseur.NoFour)
+    <strong class="redtxt">INNER JOIN</strong> Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> Fournisseur.NoPays)
+<strong class="redtxt">WHERE</strong> (Pays.PaysEN <strong class="redtxt">=</strong> "United States")
+    <strong class="redtxt">AND</strong> (Produit.CoutAchat <strong class="redtxt">&lt;</strong> 25)
+<strong class="redtxt">ORDER BY</strong> Produit.CoutAchat;
+</code></pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Requête 1)c :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> pds.NomProd, cat.NomCateg, pds.CoutAchat
+<strong class="redtxt">FROM</strong> (((Produit <strong class="redtxt">AS</strong> pds
+    <strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)
+    <strong class="redtxt">INNER JOIN</strong> Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays)
+    <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> cat <strong class="redtxt">ON</strong> cat.CodeCateg <strong class="redtxt">=</strong> pds.CodeCateg)
+<strong class="redtxt">WHERE</strong> (cat.NomCateg <strong class="redtxt">=</strong> "Viandes" <strong class="redtxt">OR</strong> cat.NomCateg <strong class="redtxt">LIKE</strong> "Poissons*")
+    <strong class="redtxt">AND</strong> (pds.CoutAchat <strong class="redtxt">&gt;</strong> 50)
+<strong class="redtxt">ORDER BY</strong> cat.NomCateg, pds.CoutAchat, Pays.PaysEN;
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -175,41 +203,178 @@ ORDER BY Clientele.societe;</pre>
         </div>
     </section>
 
+    <section>
+        <h2>Requête 1)d :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> Categorie.NomCateg, Produit.NomProd, Fournisseur.Contact
+<strong class="redtxt">FROM</strong> Fournisseur
+<strong class="redtxt">INNER JOIN</strong> (Categorie
+    <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Categorie.CodeCateg <strong class="redtxt">=</strong> Produit.CodeCateg)
+    <strong class="redtxt">ON</strong> Fournisseur.NoFour
+<strong class="redtxt">WHERE</strong> Categorie.NomCateg <strong class="redtxt">LIKE</strong> "Viandes*"
+    <strong class="redtxt">OR</strong> Categorie.NomCateg <strong class="redtxt">LIKE</strong> "Poissons*"
+<strong class="redtxt">ORDER BY</strong> Categorie.NomCateg <strong class="redtxt">ASC</strong>;
+</code></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>NomCateg</th>
+                    <th>Nom produit</th>
+                    <th>Contact</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Røgede sild</td>
+                    <td>Niels Petersen</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Ikura</td>
+                    <td>Yoshi Nagase</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Konbu</td>
+                    <td>Mayumi Ohno</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Carnarvon Tigers</td>
+                    <td>Ian Devling</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Nord-Ost Matjeshering</td>
+                    <td>Sven Petersen</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Inlagd Sill</td>
+                    <td>Michael Björn</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Gravad lax</td>
+                    <td>Michael Björn</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Jack's New England Clam Chowder</td>
+                    <td>Robb Merchant</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Spegesild</td>
+                    <td>Niels Petersen</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Escargots de Bourgogne</td>
+                    <td>Roger Delameare</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Röd Kaviar</td>
+                    <td>Michael Björn</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Cidre brut de Saint Lô</td>
+                    <td>Marie Nodier</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Dea Surströmming</td>
+                    <td>Lars Peterson</td>
+                </tr>
+                <tr>
+                    <td>Poissons et fruits de mer</td>
+                    <td>Boston Crab Meat</td>
+                    <td>Robb Merchant</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Perth Pasties</td>
+                    <td>Wendy Mackenzie</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Paté de Campagne au Pommeau</td>
+                    <td>Marie Nodier</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Tourtière</td>
+                    <td>Jean-Guy Lauzon</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Mishi Kobe Niku</td>
+                    <td>Yoshi Nagase</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Pâté chinois</td>
+                    <td>Jean-Guy Lauzon</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Thüringer Rostbratwurst</td>
+                    <td>Martin Bein</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Alice Mutton</td>
+                    <td>Hug Jhonson</td>
+                </tr>
+                <tr>
+                    <td>Viandes</td>
+                    <td>Terrine Andouilloux</td>
+                    <td>Bob Rego</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <section>
-        <h2>Requête 1)e:</h2>
+        <h2>Requête 1)e :</h2>
         <div class="requete">
-        <pre>SELECT Fournisseur.Societe, Categorie.NomCateg
-FROM Fournisseur INNER JOIN
-(Categorie SELECT
+<pre><code>
+<strong class="redtxt">SELECT</strong> Fournisseur.Societe, Categorie.NomCateg
+<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">INNER JOIN</strong>
+(Categorie <strong class="redtxt">SELECT</strong>
     Fournisseur.Societe
-FROM
+<strong class="redtxt">FROM</strong>
     Fournisseur
-WHERE
-    Fournisseur.NoFour IN (
-        SELECT DISTINCT
+<strong class="redtxt">WHERE</strong>
+    Fournisseur.NoFour <strong class="redtxt">IN</strong> (
+        <strong class="redtxt">SELECT DISTINCT</strong>
             Fournisseur.NoFour
-        FROM
-            (
-                Fournisseur
-                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour
-            )
-            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
-        WHERE
-            Categorie.NomCateg IN ("Viandes")
-    )
-    AND Fournisseur.NoFour IN (
-        SELECT DISTINCT
-            Fournisseur.NoFour
-        FROM
+        <strong class="redtxt">FROM</strong>
             (Fournisseur
-                INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour)
-            INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg
-        WHERE
-            Categorie.NomCateg IN ("Poissons et fruits de mer")
+                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="redtxt">=</strong> Produit.NoFour)
+            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg <strong class="redtxt">=</strong> Categorie.CodeCateg
+        <strong class="redtxt">WHERE</strong>
+            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Viandes")
     )
-ORDER BY
-    Fournisseur.Societe;</pre>
+    <strong class="redtxt">AND</strong> Fournisseur.NoFour <strong class="redtxt">IN</strong> (
+        <strong class="redtxt">SELECT DISTINCT</strong>
+            Fournisseur.NoFour
+        <strong class="redtxt">FROM</strong>
+            (Fournisseur
+                <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="redtxt">=</strong> Produit.NoFour)
+            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">ON</strong> Produit.CodeCateg <strong class="redtxt">=</strong> Categorie.CodeCateg
+        <strong class="redtxt">WHERE</strong>
+            Categorie.NomCateg <strong class="redtxt">IN</strong> ("Poissons et fruits de mer")
+    )
+<strong class="redtxt">ORDER BY</strong>
+    Fournisseur.Societe;
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -228,23 +393,37 @@ ORDER BY
             </table>
         </div>
     </section>
-    <section>
-        <h2>Requête 1)g:</h2>
-        <div class="requete">
-        <pre><code>
-<strong class="redtxt">SELECT TOP3</strong> cltl.contact,cltl.Adresse,cltl.Tel,cmd.DateCde
-<strong class="redtxt">FROM</strong> (Clientele <strong class="redtxt">AS</strong> Cltl
-<strong class="redtxt">INNER JOIN</strong> Commande <strong class="redtxt">AS</strong> cmd <strong class="redtxt">ON</strong> cltl.CodeCli <strong class="redtxt">=</strong> cmd.CodeCli)
-<strong class="redtxt">WHERE</strong> cltl.contact <strong class="redtxt">=</strong> "Max Deschamps"
-<strong class="redtxt">ORDER BY</strong> cltl.contact,cltl.Tel,cmd.DateCde, cltl.Adresse
-        </code></pre>
 
+    <section>
+        <h2>Requête 1)f :</h2>
+        <p>Quels sont les produits conditionnés dans du carton ou dans du verre ?</p>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> RefProd, NomProd, QteParUnit
+<strong class="redtxt">FROM</strong> Produit
+<strong class="redtxt">WHERE</strong> QteParUnit <strong class="redtxt">LIKE</strong> "carton"
+    <strong class="redtxt">OR</strong> QteParUnit <strong class="redtxt">LIKE</strong> "verre"
+<strong class="redtxt">ORDER BY</strong> NomProd;
+</code></pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Requête 1)g :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT TOP</strong> 3 cltl.Contact, cltl.Adresse, cltl.Tel, cmd.DateCde
+<strong class="redtxt">FROM</strong> (Clientele <strong class="redtxt">AS</strong> cltl
+    <strong class="redtxt">INNER JOIN</strong> Commande <strong class="redtxt">AS</strong> cmd <strong class="redtxt">ON</strong> cltl.CodeCli <strong class="redtxt">=</strong> cmd.CodeCli)
+<strong class="redtxt">WHERE</strong> cltl.Contact <strong class="redtxt">=</strong> "Max Deschamps"
+<strong class="redtxt">ORDER BY</strong> cltl.Contact, cltl.Tel, cmd.DateCde, cltl.Adresse;
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
                 <tr>
                     <th>N° commande</th>
-                    <th>contact</th>
+                    <th>Contact</th>
                     <th>Adresse</th>
                     <th>Tel</th>
                     <th>DateCde</th>
@@ -276,19 +455,57 @@ ORDER BY
             </table>
         </div>
     </section>
+
     <section>
-        <h2>Requête 1)i:</h2>
+        <h2>Requête 1)h :</h2>
+        <p>Quels fournisseurs ne proposent que des desserts ?</p>
         <div class="requete">
-        <pre><code>
+<pre><code>
+<strong class="redtxt">SELECT DISTINCT</strong> f.NoFour, f.Societe, f.Ville
+<strong class="redtxt">FROM</strong> (Fournisseur <strong class="redtxt">AS</strong> f
+    <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">AS</strong> p <strong class="redtxt">ON</strong> f.NoFour <strong class="redtxt">=</strong> p.NoFour)
+    <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> c <strong class="redtxt">ON</strong> p.CodeCateg <strong class="redtxt">=</strong> c.CodeCateg
+<strong class="redtxt">WHERE</strong> c.NomCateg <strong class="redtxt">LIKE</strong> "Dessert*"
+    <strong class="redtxt">AND</strong> f.NoFour <strong class="redtxt">NOT IN</strong> (
+        <strong class="redtxt">SELECT</strong> p2.NoFour
+        <strong class="redtxt">FROM</strong> Produit <strong class="redtxt">AS</strong> p2
+            <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> c2 <strong class="redtxt">ON</strong> p2.CodeCateg <strong class="redtxt">=</strong> c2.CodeCateg
+        <strong class="redtxt">WHERE</strong> c2.NomCateg <strong class="redtxt">NOT LIKE</strong> "Dessert*")
+<strong class="redtxt">ORDER BY</strong> f.Societe;
+</code></pre>
+            <p>Explication : on garde les fournisseurs qui ont au moins un produit de la catégorie desserts, puis on exclut ceux qui ont aussi un produit d'une autre catégorie (sous-requête avec <code>NOT IN</code>).</p>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>NoFour</th>
+                    <th>Societe</th>
+                    <th>Ville</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>Requête 1)i :</h2>
+        <div class="requete">
+<pre><code>
 <strong class="redtxt">SELECT</strong> fnsr.*
 <strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">AS</strong> fnsr
-<strong class="redtxt">INNER JOIN</strong> (Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays
-<strong class="redtxt">LEFT JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)
+    <strong class="redtxt">INNER JOIN</strong> (Pays <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> fnsr.NoPays
+    <strong class="redtxt">LEFT JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON</strong> pds.NoFour <strong class="redtxt">=</strong> fnsr.NoFour)
 <strong class="redtxt">WHERE</strong> pds.RefProd <strong class="redtxt">IS NULL</strong>
-<strong class="redtxt">AND</strong> Pays.PaysEN <strong class="redtxt">&lt;&gt;</strong> "France"
-<strong class="redtxt">ORDER BY</strong> fnsr.Societe, fnsr.NoFour, fnsr.Adressec
-        </code></pre>
-
+    <strong class="redtxt">AND</strong> Pays.PaysEN <strong class="redtxt">&lt;&gt;</strong> "France"
+<strong class="redtxt">ORDER BY</strong> fnsr.Societe, fnsr.NoFour, fnsr.Adressec;
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -332,21 +549,56 @@ ORDER BY
                 </tr>
                 </tbody>
             </table>
-
-            <p>Points d’attention sur le LEFT JOIN !! En effet le Inner join ne marche pas car garde uniquement ceux qui ne sont non null.</p>
+            <p>Points d’attention sur le <code>LEFT JOIN</code> : le <code>INNER JOIN</code> ne fonctionne pas ici, car il garde uniquement les lignes non nulles.</p>
         </div>
     </section>
-    <section id="requete2">
-        <h2>Requête 2:</h2>
+
+    <section>
+        <h2>Requête 1)j :</h2>
+        <p>Pour optimiser les livraisons, quels couples de clients sont situés à Paris ?</p>
         <div class="requete">
-        <pre>SELECT SUM (DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100))
-FROM ((Pays INNER JOIN Fournisseur
-	ON Pays.NoPays = Fournisseur.NoPays)
-INNER JOIN Produit
-	ON Fournisseur.NoFour = Produit.NoFour)
-INNER JOIN DetailCommande
-	ON Produit.RefProd = DetailCommande.[Réf produit]
-WHERE Pays.UE = "Membre";</pre>
+<pre><code>
+<strong class="redtxt">SELECT</strong> c1.Societe <strong class="redtxt">AS</strong> Client1, c2.Societe <strong class="redtxt">AS</strong> Client2, c1.Ville
+<strong class="redtxt">FROM</strong> Clientele <strong class="redtxt">AS</strong> c1
+    <strong class="redtxt">INNER JOIN</strong> Clientele <strong class="redtxt">AS</strong> c2 <strong class="redtxt">ON</strong> c1.Ville <strong class="redtxt">=</strong> c2.Ville
+<strong class="redtxt">WHERE</strong> c1.Ville <strong class="redtxt">=</strong> "Paris"
+    <strong class="redtxt">AND</strong> c1.CodeCli <strong class="redtxt">&lt;</strong> c2.CodeCli
+<strong class="redtxt">ORDER BY</strong> c1.Societe, c2.Societe;
+</code></pre>
+            <p>Explication : la table Clientele est utilisée deux fois (auto-jointure). La condition <code>c1.CodeCli &lt; c2.CodeCli</code> évite de comparer un client avec lui-même et empêche les doublons (A-B et B-A).</p>
+            <p>Le résultat (extrait) :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Client1</th>
+                    <th>Client2</th>
+                    <th>Ville</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>Paris</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===================== REQUÊTE 2 ===================== -->
+
+    <section id="requete2">
+        <h2>Requête 2 :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT SUM</strong>(DetailCommande.Quantité * Produit.CoutAchat * (1 - DetailCommande.[Remise (%)] / 100)) <strong class="redtxt">AS</strong> CA_pays_UE
+<strong class="redtxt">FROM</strong> ((Pays
+    <strong class="redtxt">INNER JOIN</strong> Fournisseur <strong class="redtxt">ON</strong> Pays.NoPays <strong class="redtxt">=</strong> Fournisseur.NoPays)
+    <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">ON</strong> Fournisseur.NoFour <strong class="redtxt">=</strong> Produit.NoFour)
+    <strong class="redtxt">INNER JOIN</strong> DetailCommande <strong class="redtxt">ON</strong> Produit.RefProd <strong class="redtxt">=</strong> DetailCommande.[Réf produit]
+<strong class="redtxt">WHERE</strong> Pays.UE <strong class="redtxt">=</strong> "Membre";
+</code></pre>
             <p>Le résultat :</p>
             <table>
                 <thead>
@@ -362,7 +614,97 @@ WHERE Pays.UE = "Membre";</pre>
             </table>
         </div>
     </section>
-    /*--mettez vos requetes jusqu'a la 5eme*/
+
+    <!-- ===================== REQUÊTE 3 ===================== -->
+
+    <section id="requete3">
+        <h2>Requête 3 :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> <strong class="redtxt">Year</strong>(C.DateCde) <strong class="redtxt">AS</strong> Annee, Cat.NomCateg, <strong class="redtxt">Sum</strong>(D.Quantité * P.CoutAchat * Cat.CoefMarge * (1 - D.[Remise (%)] / 100)) <strong class="redtxt">AS</strong> CA
+<strong class="redtxt">FROM</strong> (((Commande <strong class="redtxt">AS</strong> C
+    <strong class="redtxt">INNER JOIN</strong> DetailCommande <strong class="redtxt">AS</strong> D <strong class="redtxt">ON</strong> C.[N° commande] <strong class="redtxt">=</strong> D.[N° commande])
+    <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">AS</strong> P <strong class="redtxt">ON</strong> D.[Réf produit] <strong class="redtxt">=</strong> P.RefProd)
+    <strong class="redtxt">INNER JOIN</strong> Categorie <strong class="redtxt">AS</strong> Cat <strong class="redtxt">ON</strong> P.CodeCateg <strong class="redtxt">=</strong> Cat.CodeCateg)
+<strong class="redtxt">WHERE</strong> Cat.NomCateg <strong class="redtxt">LIKE</strong> "dessert"
+    <strong class="redtxt">OR</strong> Cat.NomCateg <strong class="redtxt">LIKE</strong> "boisson"
+<strong class="redtxt">GROUP BY</strong> <strong class="redtxt">Year</strong>(C.DateCde), Cat.NomCateg
+<strong class="redtxt">ORDER BY</strong> <strong class="redtxt">Year</strong>(C.DateCde), Cat.NomCateg;
+</code></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Annee</th>
+                    <th>NomCateg</th>
+                    <th>CA</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2020</td>
+                    <td>Boissons</td>
+                    <td>########</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>Desserts</td>
+                    <td>########</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>Boissons</td>
+                    <td>########</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>Desserts</td>
+                    <td>########</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>Boissons</td>
+                    <td>437,5</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>Desserts</td>
+                    <td>########</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===================== REQUÊTE 4 ===================== -->
+
+    <section id="requete4">
+        <h2>Requête 4 :</h2>
+        <div class="requete">
+<pre><code>
+<strong class="redtxt">SELECT</strong> <strong class="redtxt">COUNT</strong>(*) <strong class="redtxt">AS</strong> NbProduitsNonCommandes
+<strong class="redtxt">FROM</strong> (Categorie <strong class="redtxt">AS</strong> cat
+    <strong class="redtxt">INNER JOIN</strong> Produit <strong class="redtxt">AS</strong> pds <strong class="redtxt">ON</strong> cat.CodeCateg <strong class="redtxt">=</strong> pds.CodeCateg)
+    <strong class="redtxt">LEFT JOIN</strong> DetailCommande <strong class="redtxt">AS</strong> dcmd <strong class="redtxt">ON</strong> dcmd.[Réf produit] <strong class="redtxt">=</strong> pds.RefProd
+<strong class="redtxt">WHERE</strong> cat.NomCateg <strong class="redtxt">=</strong> "Viandes"
+    <strong class="redtxt">AND</strong> dcmd.[Réf produit] <strong class="redtxt">IS NULL</strong>;
+</code></pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>NbProduitsNonCommandes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Il a fallu retrouver la fonction <code>COUNT(*)</code>. J’ai aussi essayé de rajouter un <code>GROUP BY</code> afin de savoir quels produits ne se sont pas vendus, mais cela n’a pas marché : il n’y avait plus de somme globale comme ici.</p>
+        </div>
+    </section>
 
 </main>
 <footer>&copy; 2026 – Compte rendu</footer>
