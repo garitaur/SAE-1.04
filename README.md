@@ -6,7 +6,16 @@ Création d'un site pour une entreprise fictive KDOU afin de faire un compte ren
 
 ## Implémentation du projet 
 
-### [pseudo1]
-### [pseudo2]
-### [pseudo3]
-### Garitaur
+### garitaur
+Css files,
+La page equipe
+Menu Burger
+Structure du site
+### guesstme24
+
+### yasmine337
+Choix palette de couleurs, Fonts
+
+### lipatov08
+Mise en forme Pre
+Class= redtxt

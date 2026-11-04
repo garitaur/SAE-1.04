@@ -254,6 +254,184 @@
             </div>
 
     </section>
+    <section id="Mic">
+        <h2>Requête Michèle</h2>
+        <p>Quels sont les fournisseurs de KDou situés dans les pays de l’Union européenne ?</p>
+        <p>Cette requête permet d’identifier les fournisseurs situés dans l’Union européenne et d’afficher le nom de leur société.</p>
+        <p>L’objectif est de mieux connaître les fournisseurs européens de KDou et de favoriser les approvisionnements plus proches afin de limiter l’impact environnemental.</p>
+
+        <div class="requete">
+  <pre>
+<strong class="redtxt">SELECT</strong> Pays.PaysFR, Fournisseur.Societe
+<strong class="redtxt">FROM</strong> Fournisseur <strong class="redtxt">INNER JOIN</strong> Pays
+<strong class="redtxt">ON</strong> Fournisseur.NoPays <strong class="redtxt">=</strong> Pays.NoPays
+<strong class="redtxt">WHERE</strong> Pays.UE <strong class="redtxt">=</strong> True;
+  </pre>
+            <p>Le résultat :</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>PaysFR</th>
+                    <th>Societe</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Allemagne</td>
+                    <td>Nordlicht Feinkost GmbH</td>
+                </tr>
+                <tr>
+                    <td>Allemagne</td>
+                    <td>TanteGreta Handelsgruppe AG</td>
+                </tr>
+                <tr>
+                    <td>Allemagne</td>
+                    <td>BaltikFisch GmbH</td>
+                </tr>
+                <tr>
+                    <td>Australie</td>
+                    <td>Coral Bay Delights Ltd.</td>
+                </tr>
+                <tr>
+                    <td>Australie</td>
+                    <td>Boomerang Goods Pty Ltd.</td>
+                </tr>
+                <tr>
+                    <td>Australie</td>
+                    <td>Aether &amp; Co. Beverages</td>
+                </tr>
+                <tr>
+                    <td>Australie</td>
+                    <td>Pacific United Traders Ltd.</td>
+                </tr>
+                <tr>
+                    <td>Brésil</td>
+                    <td>Sabores del Sol</td>
+                </tr>
+                <tr>
+                    <td>Brésil</td>
+                    <td>Sol de Madeira</td>
+                </tr>
+                <tr>
+                    <td>Brésil</td>
+                    <td>Sabor do Sul Ltda.</td>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>Le Panier du Coin</td>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>Délices de l'Érable</td>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>Rontab</td>
+                </tr>
+                <tr>
+                    <td>Danemark</td>
+                    <td>FjordSild AS</td>
+                </tr>
+                <tr>
+                    <td>Espagne</td>
+                    <td>Cooperativa de Aceites "Los Olivos"</td>
+                </tr>
+                <tr>
+                    <td>Etats-Unis</td>
+                    <td>Bayou pice Traders</td>
+                </tr>
+                <tr>
+                    <td>Etats-Unis</td>
+                    <td>Miss Ruby's Kitchen</td>
+                </tr>
+                <tr>
+                    <td>Etats-Unis</td>
+                    <td>Grizzly Hopworks Co.</td>
+                </tr>
+                <tr>
+                    <td>Etats-Unis</td>
+                    <td>Atlantic Bay Fish Co.</td>
+                </tr>
+                <tr>
+                    <td>Finlande</td>
+                    <td>MakeaHerkkku Oy</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>Moines de Paris</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>L'escargotière</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>Crème des Prés</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>EthnicFood France</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>Ronde du lac</td>
+                </tr>
+                <tr>
+                    <td>Italie</td>
+                    <td>Dolci e Sapori s.r.l.</td>
+                </tr>
+                <tr>
+                    <td>Italie</td>
+                    <td>Casa dell'Arte Pasta s.r.l.</td>
+                </tr>
+                <tr>
+                    <td>Japon</td>
+                    <td>Sakura Imports</td>
+                </tr>
+                <tr>
+                    <td>Japon</td>
+                    <td>Mayako Foods</td>
+                </tr>
+                <tr>
+                    <td>Norvège</td>
+                    <td>NordFjell Meieriprodukter AS</td>
+                </tr>
+                <tr>
+                    <td>Pays-Bas</td>
+                    <td>Tulip &amp; Co. Delicacies</td>
+                </tr>
+                <tr>
+                    <td>Pays-Bas</td>
+                    <td>Holland Zoetgoed BV</td>
+                </tr>
+                <tr>
+                    <td>Royaume-Uni</td>
+                    <td>Savannah Bay Spices Co.</td>
+                </tr>
+                <tr>
+                    <td>Royaume-Uni</td>
+                    <td>Baker’s Treats, Ltd.</td>
+                </tr>
+                <tr>
+                    <td>Singapour</td>
+                    <td>NordHavn Exports</td>
+                </tr>
+                <tr>
+                    <td>Suède</td>
+                    <td>SkandiDelikat AB</td>
+                </tr>
+                <tr>
+                    <td>Suède</td>
+                    <td>Havsmat Sverige AB</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
     <section>
         <section id="Noah">
             <h2 class="title-center">Requête Noah</h2>
