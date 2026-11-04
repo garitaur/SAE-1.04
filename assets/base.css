@@ -35,6 +35,11 @@ p,pre{
     background-color: var(--bg-under-section);
     width: fit-content;
 }
+div.footers{
+    display: flex;
+    justify-content: center;
+
+}
 q{
     font-family: "Copperplate Gothic Bold";
     color: var(--text-secondary);

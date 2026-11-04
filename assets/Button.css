@@ -133,3 +133,6 @@ h2 a:hover{
     visibility: visible;
     transform: translateY(0);
 }
+a.FootersLink:hover{
+    color: var(--bg-main);
+}
