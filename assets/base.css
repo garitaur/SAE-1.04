@@ -4,6 +4,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.mobile-warning{
+    background-color: var(--bg-main);
+}
 a{
     text-decoration: none;
     color: var(--text-secondary);
